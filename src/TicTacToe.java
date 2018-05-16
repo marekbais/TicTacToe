@@ -62,13 +62,6 @@ public class TicTacToe {
 			else if ((board[0][i] == board[1][1]) && (board[1][1] == board[2][(board.length - 1) - i])) {
 				winner = board[1][1];
 			}
-			// System.out.println("row cond:" + ((board[i][0] == board[i][1]) &&
-			// (board[i][1] == board[i][2])));
-			// System.out.println("column cond:" + ((board[0][i] == board[1][i])
-			// && (board[1][i] == board[2][i])));
-			// System.out.println("diagon cond:" + ((board[0][i] == board[1][1])
-			// && (board[1][1] == board[2][(board.length - 1) - i])));
-			// System.out.println("winner:" + winner);
 			if (winner != '_')
 				i = board.length + 1;
 		}
@@ -135,16 +128,6 @@ public class TicTacToe {
 			System.out.println("Not an integer, please select index 1-9!");
 			playersTurn();
 		}
-//		 try {
-//		 indexFromPlayer = input.nextInt();
-//		 }
-//		 catch(Exception InputMismatchException) {
-//		 System.out.println("Invalid index, please select a number 1-9!");
-//		 playersTurn();
-//		 }
-//		//indexFromPlayer = input.nextInt();
-//		// guarantees valid index
-		
 	}
 
 	private boolean matchFound;
@@ -219,20 +202,7 @@ public class TicTacToe {
 //					System.out.println(i + "diagonal");
 				}
 			}
-
-			// matchFound terminate for loop
-			// if (matchFound) i = board.length + 1;
 		}
-		// no match found, choose random index
-		// if (!matchFound) {
-		// int indexAI = (int) (Math.random() * (board.length*board.length));
-		// while(!isMoveValid(indexAI)) {
-		// indexAI = (int) (Math.random() * (board.length*board.length));
-		// System.out.println(indexAI);
-		// }
-		// makeMove(indexAI);
-		// System.out.println("random");
-		// }
 	}
 
 	public void AIsRandomMove() {
@@ -282,11 +252,6 @@ public class TicTacToe {
 			gameOverSequence();
 			break;
 		}
-		// if(input.next().equals("Y")) {
-		// mainGameSequence();
-		// } else if (input.next().equals("N")) {
-		// System.out.println("Thanks for playing!");
-		// }
 	}
 
 	public void mainGameSequence() {
