@@ -119,11 +119,21 @@ public class TicTacToe {
 	}
 
 	public void playersTurn() {
-		int indexFromPlayer = 0;
+
 		System.out.println("Press the number of index where you want to place your X/O: ");
+		String playerInput = input.nextLine();
 		
-		while(!input.hasNextInt()) {
-			System.out.println("Number!!!");
+		if (playerInput.matches("[1234567890]+")) {
+			int indexFromPlayer = Integer.parseInt(playerInput);
+			if ((indexFromPlayer > 9 || indexFromPlayer < 1) || !isMoveValid(indexFromPlayer - 1)) {
+				System.out.println("Invalid index, please select one of the empty fields!");
+				playersTurn();
+			} else {
+				makeMove(indexFromPlayer);
+			}
+		} else {
+			System.out.println("Not an integer, please select index 1-9!");
+			playersTurn();
 		}
 //		 try {
 //		 indexFromPlayer = input.nextInt();
@@ -134,11 +144,7 @@ public class TicTacToe {
 //		 }
 //		//indexFromPlayer = input.nextInt();
 //		// guarantees valid index
-		while ((indexFromPlayer > 10 || indexFromPlayer < 1) || !isMoveValid(indexFromPlayer - 1)) {
-			System.out.println("Invalid index, please select one of the empty fields!");
-			indexFromPlayer = input.nextInt();
-		}
-		makeMove(indexFromPlayer);
+		
 	}
 
 	private boolean matchFound;
