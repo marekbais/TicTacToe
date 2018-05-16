@@ -102,11 +102,11 @@ public class TicTacToe {
 		if (turn == 1) {
 			indexNo--; // compensation between user and computer indices
 			board[indexNo / board.length][indexNo % board.length] = player1;
-			System.out.println("[" + indexNo / board.length + "][" + indexNo % board.length + "]" + player1);
+//			System.out.println("[" + indexNo / board.length + "][" + indexNo % board.length + "]" + player1);
 
 		} else {
 			board[indexNo / board.length][indexNo % board.length] = player2;
-			System.out.println("[" + indexNo / board.length + "][" + indexNo % board.length + "]" + player2);
+//			System.out.println("[" + indexNo / board.length + "][" + indexNo % board.length + "]" + player2);
 		}
 		changeTurn();
 	}
@@ -152,21 +152,21 @@ public class TicTacToe {
 				if (isMoveValid(i * 3 + 2)) {
 					makeMove(i * 3 + 2);
 					matchFound = true;
-					System.out.println(i + "row");
+//					System.out.println(i + "row");
 				}
 
 			} else if (board[i][1] == board[i][2] && board[i][1] == playerChar) {
 				if (isMoveValid(i * 3)) {
 					makeMove(i * 3);
 					matchFound = true;
-					System.out.println(i + "row");
+//					System.out.println(i + "row");
 				}
 
 			} else if (board[i][0] == board[i][2] && board[i][0] == playerChar) {
 				if (isMoveValid(i * 3 + 1)) {
 					makeMove(i * 3 + 1);
 					matchFound = true;
-					System.out.println(i + "row");
+//					System.out.println(i + "row");
 
 				}
 			}
@@ -175,22 +175,22 @@ public class TicTacToe {
 				if (isMoveValid(2 * 3 + i)) {
 					makeMove(2 * 3 + i);
 					matchFound = true;
-					System.out.println(i + "column");
+//					System.out.println(i + "column");
 				}
 
 			} else if (board[1][i] == board[2][i] && board[1][i] == playerChar) {
-				System.out.println("column running");
+//				System.out.println("column running");
 				if (isMoveValid(i)) {
 					makeMove(i);
 					matchFound = true;
-					System.out.println(i + "column");
+//					System.out.println(i + "column");
 				}
 
 			} else if (board[0][i] == board[2][i] && board[0][i] == playerChar) {
 				if (isMoveValid(3 + i)) {
 					makeMove(3 + i);
 					matchFound = true;
-					System.out.println(i + "column");
+//					System.out.println(i + "column");
 				}
 			}
 			// diagonal match
@@ -198,19 +198,19 @@ public class TicTacToe {
 				if (isMoveValid(2 * 3 + (board.length - i - 1))) {
 					makeMove(2 * 3 + (board.length - i - 1));
 					matchFound = true;
-					System.out.println(i + "diagonal");
+//					System.out.println(i + "diagonal");
 				}
 			} else if (board[2][i] == board[1][1] && board[1][1] == playerChar) {
 				if (isMoveValid(board.length - i - 1)) {
 					makeMove(board.length - i - 1);
 					matchFound = true;
-					System.out.println(i + "diagonal");
+//					System.out.println(i + "diagonal");
 				}
 			} else if (board[0][i] == board[2][board.length - i - 1] && board[0][i] == playerChar) {
 				if (isMoveValid(4)) {
 					makeMove(4);
 					matchFound = true;
-					System.out.println(i + "diagonal");
+//					System.out.println(i + "diagonal");
 				}
 			}
 
@@ -236,7 +236,7 @@ public class TicTacToe {
 			System.out.println(indexAI);
 		}
 		makeMove(indexAI);
-		System.out.println("random");
+//		System.out.println("random");
 	}
 
 	// initializing the game
@@ -295,10 +295,10 @@ public class TicTacToe {
 			} else {
 				// AI's turn
 				AIsTurn(player2);
-				System.out.println("MatchFound X: " + matchFound);
+//				System.out.println("MatchFound X: " + matchFound);
 				if (!matchFound) {
 					AIsTurn(player1);
-					System.out.println("MatchFound O: " + matchFound);
+//					System.out.println("MatchFound O: " + matchFound);
 					if (!matchFound) {
 						AIsRandomMove();
 					}
