@@ -286,7 +286,7 @@ public class TicTacToe {
 	public void mainGameSequence() {
 		resetAll();
 		drawIndexBoard();
-		// while the game doesn't have any conclusion yet
+		
 		while (!isDraw() && (whoWon() == '_')) {
 			drawBoard();
 			// player's turn
