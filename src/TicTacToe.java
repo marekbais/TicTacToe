@@ -19,6 +19,14 @@ public class TicTacToe {
 		}
 		turn = 2;
 	}
+	
+	public char[][] getBoard() {
+		return board;
+	}
+	//only for testing
+	public void setBoard(char[][] board) {
+		this.board = board;
+	}
 
 	public void drawBoard() {
 		System.out.println("-------------");
@@ -72,11 +80,15 @@ public class TicTacToe {
 		if (whoWon() == '_') {
 			for (int i = 0; i < board.length; i++) {
 				for (int j = 0; j < board.length; j++) {
-					if (board[i][j] == '_')
+					if (board[i][j] == '_'){
+						System.out.println("isDraw: false");
 						return false;
+					}
+						
 				}
 			}
 		}
+		System.out.println("isDraw: true");
 		return true;
 	}
 
