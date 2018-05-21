@@ -57,7 +57,7 @@ public class TicTacToe {
 		char winner = '_';
 
 		for (int i = 0; i < board.length; i++) {
-			// System.out.println("for " + i);
+
 			// row win
 			if ((board[i][0] == board[i][1]) && (board[i][1] == board[i][2])) {
 				winner = board[i][0];
@@ -76,29 +76,25 @@ public class TicTacToe {
 		return winner;
 	}
 
+	//if there's no winner, check for any _ fields, if there are none return true
 	public boolean isDraw() {
 		if (whoWon() == '_') {
 			for (int i = 0; i < board.length; i++) {
 				for (int j = 0; j < board.length; j++) {
 					if (board[i][j] == '_'){
-						System.out.println("isDraw: false");
 						return false;
 					}
-						
 				}
 			}
+		} else {
+			return false;
 		}
-		System.out.println("isDraw: true");
 		return true;
 	}
 
 	// changes playerNo in int turn
 	public void changeTurn() {
-		if (turn == 1) {
-			turn = 2;
-		} else {
-			turn = 1;
-		}
+		turn = (turn == 1) ? 2 : 1;
 	}
 
 	// puts player's char on the board and changes turn
@@ -107,11 +103,9 @@ public class TicTacToe {
 		if (turn == 1) {
 			indexNo--; // compensation between user and computer indices
 			board[indexNo / board.length][indexNo % board.length] = player1;
-//			System.out.println("[" + indexNo / board.length + "][" + indexNo % board.length + "]" + player1);
 
 		} else {
 			board[indexNo / board.length][indexNo % board.length] = player2;
-//			System.out.println("[" + indexNo / board.length + "][" + indexNo % board.length + "]" + player2);
 		}
 		changeTurn();
 	}
@@ -221,10 +215,8 @@ public class TicTacToe {
 		int indexAI = (int) (Math.random() * (board.length * board.length));
 		while (!isMoveValid(indexAI)) {
 			indexAI = (int) (Math.random() * (board.length * board.length));
-			System.out.println(indexAI);
 		}
 		makeMove(indexAI);
-//		System.out.println("random");
 	}
 
 	// initializing the game
